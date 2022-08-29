@@ -221,7 +221,7 @@
     }
     let token = null
 
-    axios('/tg?appID='+appID+'&appsecret='+appsecret).then(res => {
+    axios('https://www.artstudiooo.com/tg?appID='+appID+'&appsecret='+appsecret).then(res => {
       token = res.data
       getFirstWeather()
     });
