@@ -150,7 +150,7 @@
   let color = ['#40D4F9','#E66E6E','#6EE2E6','#6EE66E','#E2E66E','#E6A26E','#E66E6E','#E66E6E','#E26EE6','#BA6EE6','#6E6EE6','#6EBAE6','#6C7A81','#000000','#1d813e','#30d558','#f63666','#c0ab69','#428c88','#2dc47c','#c9d87f','#66229b','#8c660a']
 
 
-  document.getElementById('b').onclick = ()=>{
+
 
     let appID = document.getElementById('appID').value.trim()
     let appsecret = document.getElementById('appsecret').value.trim()
@@ -231,66 +231,6 @@
           "template_id": document.getElementById('templateID').value.trim(),
           "url": "https://www.artstudiooo.com",
           "data": {
-            "1": {
-              "value": document.getElementById('key1').value.trim(),
-              "color": color[Math.floor(Math.random()*color.length)]
-            },
-            "2": {
-              "value": document.getElementById('key2').value.trim(),
-              "color": color[Math.floor(Math.random()*color.length)]
-            },
-            "3": {
-              "value": document.getElementById('key3').value.trim(),
-              "color": color[Math.floor(Math.random()*color.length)]
-            },
-            "4": {
-              "value": document.getElementById('key4').value.trim(),
-              "color": color[Math.floor(Math.random()*color.length)]
-            },
-            "5": {
-              "value": document.getElementById('key5').value.trim(),
-              "color": color[Math.floor(Math.random()*color.length)]
-            },
-            "6": {
-              "value": document.getElementById('key6').value.trim(),
-              "color": color[Math.floor(Math.random()*color.length)]
-            },
-            "7": {
-              "value": document.getElementById('key7').value.trim(),
-              "color": color[Math.floor(Math.random()*color.length)]
-            },
-            "8": {
-              "value": document.getElementById('key8').value.trim(),
-              "color": color[Math.floor(Math.random()*color.length)]
-            },
-            "9": {
-              "value": document.getElementById('key9').value.trim(),
-              "color": color[Math.floor(Math.random()*color.length)]
-            },
-            "10": {
-              "value": document.getElementById('key10').value.trim(),
-              "color": color[Math.floor(Math.random()*color.length)]
-            },
-            "11": {
-              "value": document.getElementById('key11').value.trim(),
-              "color": color[Math.floor(Math.random()*color.length)]
-            },
-            "12": {
-              "value": document.getElementById('key12').value.trim(),
-              "color": color[Math.floor(Math.random()*color.length)]
-            },
-            "13": {
-              "value": document.getElementById('key13').value.trim(),
-              "color": color[Math.floor(Math.random()*color.length)]
-            },
-            "14": {
-              "value": document.getElementById('key14').value.trim(),
-              "color": color[Math.floor(Math.random()*color.length)]
-            },
-            "15": {
-              "value": document.getElementById('key15').value.trim(),
-              "color": color[Math.floor(Math.random()*color.length)]
-            },
             "最高温": {
               "value": tempMax+'℃',
               "color": color[Math.floor(Math.random()*color.length)]
@@ -361,11 +301,7 @@
           'Content-Type': 'application/x-www-form-urlencoded'
         }
       })
-    }
-
-    setInterval(()=>{
-      document.getElementById('b').click()
-    },10000)
 
   }
+
 </script>
