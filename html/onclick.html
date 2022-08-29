@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--暂时只能在html中使用onclick调用servlet方法-->
+</head>
+<body>
+
+  <form name="form1" action="/UploadServlet" method="post">
+      <!--onclick使用get形式进行调用-->
+      <input type="button" onclick="fun()"/>
+    <input type="submit"/>
+  </form>
+
+  <script type="text/javascript">
+    function fun(){
+      window.location.href = "/mp3"
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <title>ajax</title>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+</head>
+<body style="width: 100vw;height:30vw;display: flex;justify-content: center;align-items: center;overflow: hidden;">
+<form method="post" action="/UploadServlet" >
+    <span id="status" style="display: none">发送完成</span>
+<!--    <label for="name"><input type="text" id="name"></label>-->
+    <input type="file" id="files" onchange="readFile()">
+    <button type="button" id="btn">提交</button>
+</form>
+<!--<div style="height: 100px"></div>-->
+<!--<button onclick="getCode()">python接口调用demo</button>-->
+<!--<input type="text" readonly id="input" style="width: 700px">-->
+</body>
+</html>
+<script>
+
+    function readFile() {
+        const objFile = document.getElementById('files')
+        // 获取文件
+        formFile = objFile.files
+    }
+
+    document.getElementById("btn").onclick=ajax;
+
+    // function getFiles(e){
+    //     console.log(e)
+    //     formFile = e.target.files
+    // }
+
+    function ajax(){
+        document.getElementById("btn").innerText = '发送中。。。'
+        document.getElementById('btn').style.pointerEvents = 'none'
+
+        //创建核心对象
+        var xmlhttp = new XMLHttpRequest();
+        if (window.XMLHttpRequest) {// code for all new browsers
+            xmlhttp = new XMLHttpRequest();
+        } else if (window.ActiveXObject) {// code for IE5 and IE6
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        //发送异步请求
+        if (xmlhttp != null) {
+
+            //异步GET请求
+            // xmlhttp.open("GET", "http://localhost:8080/aa");
+            // xmlhttp.send();
+
+            //异步POST请求
+            // xmlhttp.open("POST", "http://localhost:8080/aa");
+            // xmlhttp.send("username=abc&password=123456");
+
+            //异步文件上传操作
+            xmlhttp.open("POST","http://www.artstudio.fun/UploadServlet");
+            // xmlhttp.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+            data = new FormData()
+            data.append('file',formFile[0],formFile[0].name)
+            xmlhttp.send(data)
+
+        } else {
+            alert("Your browser does not support XMLHTTP.");
+        }
+
+        //执行回调操作
+        xmlhttp.onreadystatechange = function () {
+            if (this.readyState === 4 && this.status === 200) {
+                document.getElementById('status').style.display = 'block'
+                document.getElementById("btn").innerText = '发送完成'
+            }
+        }
+    }
+
+    let getCode = () => {
+        fetch('https://pyapi.artstudiooo.com/submit', {
+            method: 'POST',
+            mode:'cors',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+
+            body: JSON.stringify({  //GET请求时需要把body注释掉
+                val: 'this is your val,which you sended just now.',
+                name:'这是java发起的接口调用请求'
+            }),
+        }).then(res => {res.json().then((e) => {
+            document.getElementById('input').value = e.data.name+" , "+e.data.val+" , "+e.result
+        })});
+    }
+
+
+</script>
