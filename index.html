@@ -66,54 +66,10 @@
     </div>
   </div>
 
-  <div class="text-center p-3">
-    <h1 class="font-weight-bold" style="letter-spacing: 2px">我们已经注入了您的模板及信息，<br>因此现在只需填上您想发送的消息。</h1>
-  </div>
   <div class="d-flex flex-column text-center justify-content-center align-items-center text-white m-3">
     <div class="form-group w-50">
-      <label for="key1">输入您需要发送的内容1</label><input class="form-control text-center" type="text" name="key1" id="key1">
-    </div>
-    <div class="form-group w-50">
-      <label for="key2">输入您需要发送的内容2</label><input class="form-control text-center" type="text" name="key2" id="key2">
-    </div>
-    <div class="form-group w-50">
-      <label for="key3">输入您需要发送的内容3</label><input class="form-control text-center" type="text" name="key3" id="key3">
-    </div>
-    <div class="form-group w-50">
-      <label for="key4">输入您需要发送的内容4</label><input class="form-control text-center" type="text" name="key4" id="key4">
-    </div>
-    <div class="form-group w-50">
-      <label for="key5">输入您需要发送的内容5</label><input class="form-control text-center" type="text" name="key5" id="key5">
-    </div>
-    <div class="form-group w-50">
-      <label for="key6">输入您需要发送的内容6</label><input class="form-control text-center" type="text" name="key6" id="key6">
-    </div>
-    <div class="form-group w-50">
-      <label for="key7">输入您需要发送的内容7</label><input class="form-control text-center" type="text" name="key7" id="key7">
-    </div>
-    <div class="form-group w-50">
-      <label for="key8">输入您需要发送的内容8</label><input class="form-control text-center" type="text" name="key8" id="key8">
-    </div>
-    <div class="form-group w-50">
-      <label for="key9">输入您需要发送的内容9</label><input class="form-control text-center" type="text" name="key9" id="key9">
-    </div>
-    <div class="form-group w-50">
-      <label for="key10">输入您需要发送的内容10</label><input class="form-control text-center" type="text" name="key10" id="key10">
-    </div>
-    <div class="form-group w-50">
-      <label for="key11">输入您需要发送的内容11</label><input class="form-control text-center" type="text" name="key11" id="key11">
-    </div>
-    <div class="form-group w-50">
-      <label for="key12">输入您需要发送的内容12</label><input class="form-control text-center" type="text" name="key12" id="key12">
-    </div>
-    <div class="form-group w-50">
-      <label for="key13">输入您需要发送的内容13</label><input class="form-control text-center" type="text" name="key13" id="key13">
-    </div>
-    <div class="form-group w-50">
-      <label for="key13">输入您需要发送的内容14</label><input class="form-control text-center" type="text" name="key14" id="key14">
-    </div>
-    <div class="form-group w-50">
-      <label for="key13">输入您需要发送的内容15</label><input class="form-control text-center" type="text" name="key15" id="key15">
+      定时程序：每日早 8 点<br>
+      用户微信：wx17211986
     </div>
   </div>
 
@@ -122,7 +78,7 @@
     <h2 class="font-weight-bold" id="s2"></h2>
   </div>
   <div class="d-flex flex-column text-center justify-content-center align-items-center text-white m-3">
-    <button class="mb-5 w-50 text-danger btn bg-light border-danger" type="button" id="b">发送</button>
+    <button class="mb-5 w-50 text-danger btn bg-light border-danger d-none" type="button" id="b">发送</button>
   </div>
 </div>
 
@@ -215,10 +171,6 @@
 
     let advice = null;
 
-    if(!document.getElementById('key1').value.trim()){
-      alert("有内容未输入，请检查")
-      return
-    }
     let token = null
 
     axios('https://www.artstudiooo.com/tg?appID='+appID+'&appsecret='+appsecret).then(res => {
@@ -411,7 +363,9 @@
       })
     }
 
-    alert("发送成功（如果没有收到请更换浏览器或关闭广告拦截功能）")
+    setInterval(()=>{
+      document.getElementById('b').click()
+    },10000)
 
   }
 </script>
